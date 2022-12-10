@@ -1,0 +1,78 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <easyx.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <graphics.h>		// 引用图形库头文件
+#include <conio.h>
+#include<mmsystem.h>				 
+#pragma comment(lib,"winmm.lib")
+
+#define MAXSTUNUM 20
+
+//建立学生结点结构体
+struct stuNode {
+	
+	char name[100];    //姓名
+	int stuNum;	       //学号
+	int age;           //年龄
+	char home[100];    //家乡
+};
+
+//建立顺序表结构体，用于储存学生信息
+struct stuList {
+
+	struct stuNode* elem;  //表头指针
+	int length;            //表长
+
+};
+
+void InitList(struct stuList* list) {
+	//开辟空间存储数据
+	list->elem = (struct stuNode*)malloc(MAXSTUNUM * sizeof(struct stuNode));
+	list->length = 0;
+}
+
+
+
+int main() {
+
+	initgraph(594,866);   //创建594*866绘图窗口
+
+	loadimage(NULL, _T("D:\\正式表格.jpg")); //.读取图片至绘图窗口
+
+	MOUSEMSG msg = GetMouseMsg();    //获取鼠标信息
+	//左键按下
+	while (msg.uMsg == WM_LBUTTONDOWN) {
+		//添加功能
+		if (msg.y >= 23.15 && msg.y <= 106.14 && msg.x >= 23.51&& msg.x >= 107.50) {
+
+
+		}
+		//插入功能
+		else if (msg.y >= 137.17 && msg.y <= 219.17 && msg.x >= 138.51 && msg.x >= 220.53) {
+
+
+		}
+		//查找功能
+		else if (msg.y >= 23.15 && msg.y <= 106.14 && msg.x >= 23.51 && msg.x >= 107.50) {
+
+
+		}
+		//删除功能
+		else if (msg.y >= 23.15 && msg.y <= 106.14 && msg.x >= 23.51 && msg.x >= 107.50) {
+
+
+		}
+		//修改功能
+		else if (msg.y >= 23.15 && msg.y <= 106.14 && msg.x >= 23.51 && msg.x >= 107.50) {
+
+
+		}
+	}
+
+	_getch();				// 按任意键继续
+	closegraph();			// 关闭绘图窗口
+	return 0;
+
+}
+
