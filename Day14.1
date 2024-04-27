@@ -1,0 +1,21 @@
+class Solution(object):
+    def numberOfRightTriangles(self, grid):
+        n = len(grid)
+        m = len(grid[0])
+        count = 0
+        
+        for i in range(n):
+            for j in range(m):
+                if grid[i][j]:
+                    for k in range(n):
+                        if k == i:
+                            continue
+                        if grid[k][j]:
+                            for l in range(m):
+                                if l == j:
+                                    continue
+                                if grid[i][l] and grid[k][l]:
+                                    count += 1
+        
+        return count 
+
