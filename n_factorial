@@ -1,0 +1,33 @@
+using System;
+using System.Collections.Generic;
+
+
+namespace n_factorial
+{
+    class Program
+    {
+        static int Fac(int n) 
+        {
+            if (n == 0)
+                return 1;
+            else
+                return n * Fac(n - 1);
+
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine("please input a number:");
+            string number_input = Console.ReadLine();
+
+            if (int.TryParse(number_input, out int n)) {
+
+                Console.WriteLine($"{n} factorial is {Fac(n)}");
+            }
+            else
+            {
+                Console.WriteLine("your number is invalid");
+            }
+        }
+    }
+
+}
